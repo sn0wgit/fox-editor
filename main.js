@@ -1,5 +1,5 @@
 window.onload = (event) => {
-  const themes = ["md3light", "md3dark", "mint"];
+  const themes = ["md3light", "md3dark", "mint", "primer"];
   const themebutton = document.getElementById("theme");
   let currentThemeName = (localStorage.getItem("katex-theme") !== "null") ? localStorage.getItem("katex-theme") : themes[0];
   localStorage.setItem("katex-theme", currentThemeName);
