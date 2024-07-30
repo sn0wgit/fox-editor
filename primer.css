@@ -23,7 +23,7 @@ header a {
 }
 
 header a:hover {
-    color: rgb(104, 193, 116);
+    color: #0366d6;
 }
 
 header button {
