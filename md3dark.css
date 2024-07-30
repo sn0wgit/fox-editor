@@ -40,9 +40,7 @@ header button{
     gap: 8px;
     min-height: 40px;
     outline: none !important;
-    padding-block: 11px;
-    padding-inline-start: 12px;
-    padding-inline-end: 12px;
+    padding: 11px 16px;
     place-content: center;
     place-items: center;
     position: relative;
