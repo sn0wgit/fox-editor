@@ -13,7 +13,7 @@ window.onload = (event) => {
     currentThemeName = themes[(themes.indexOf(currentThemeName) + 1) % themes.length];
     localStorage.setItem("katex-theme", currentThemeName);
     console.log(currentThemeName);
-    currentTheme.setAttribute("href", `/${currentThemeName}.css`);
+    currentTheme.setAttribute("href", `/katex-preview-generator/${currentThemeName}.css`);
   });
   textarea.addEventListener("input", () => {
     console.log(textarea.value)
