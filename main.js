@@ -5,7 +5,7 @@ window.onload = (event) => {
   localStorage.setItem("katex-theme", currentThemeName);
   console.log(currentThemeName);
   const currentTheme = document.getElementById("theme-link");
-  currentTheme.setAttribute("href", `/${currentThemeName}.css`);
+  currentTheme.setAttribute("href", `/katex-preview-generator/${currentThemeName}.css`);
   const textarea = document.getElementById("katex-code");
   const output = document.getElementById("output");
   textarea.focus();
