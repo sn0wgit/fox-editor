@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaTeX preview generator</title>
+  <link href='/style.css' rel='stylesheet'>
+  <link href='/md3light.css' rel='stylesheet' id="theme-link">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.getElementById('output'));"></script>
+</head>
+<body>
+  <header>
+    <a href="https://katex.org/docs/supported">KaTeX docs</a>
+    <button id="theme">Change theme</button>
+  </header>
+  <main>
+    <textarea id="katex-code"></textarea>
+    <output id="output"></output>
+  </main>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>

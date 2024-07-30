@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html, body{
+    background: #2e2e2e;
+    overflow: hidden;
+}
+
+header{
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+header a {
+    color: #d5d5d5;
+    font: 400 1em 'Ubuntu';
+}
+
+header a:hover {
+    color: #68c174;
+}
+
+header button{
+    background: #454545;
+    border: 1px solid #292929;
+    padding: 5px 20px;
+    border-radius: 3px;
+    font: 400 0.75em Ubuntu;
+    color: #d5d5d5;
+}
+
+header button:hover{
+    background: #525252;
+}
+
+header button:active{
+    border-color: #0f0f0f;
+    outline: 1px dashed #606060;
+    outline-offset: -3px;
+}
+
+header button:active:hover{
+    background: #3f3f3f;
+}
+
+main{
+    height: calc(100vh - 40px);
+}
+
+textarea {
+    background: #414141;
+    border: 1px solid #202020;
+    border-radius: 2px;
+    caret-color: #35a854;
+    color: #fff;
+    font: 400 1em 'Ubuntu Mono';
+    margin: 0 4px 8px 8px;
+    padding: 12px;
+    width: calc(100% - 36px);
+    height: calc(100% - 34px);
+    overflow: auto;
+}
+
+textarea:focus-visible {
+    outline: unset;
+    border-color: #35a854;
+}
+
+output{
+    display: flex;
+    background: #515151;
+    padding: 1em;
+    border: 1px solid #202020;
+    margin: 0 8px 8px 4px;
+    padding: 12px;
+    width: calc(100% - 36px);
+    height: calc(100% - 34px);
+    color: #fff;
+    overflow: auto;
+}
+
+output>span.katex {
+    margin: auto;
+}
+
+@media (orientation: portrait) {
+    textarea{
+        margin: 0 8px 4px 8px;
+        width: calc(100% - 40px);
+    }
+
+    output{
+        margin: 0 8px 4px 8px;
+        width: calc(100% - 40px);
+    }
+}

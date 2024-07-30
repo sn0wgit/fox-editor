@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body{
+    background: #fefbff;
+    gap: 8px;
+    font: 400 1em 'Roboto';
+    overflow: hidden;
+}
+
+header{
+    height: 64px;
+    background: #f2ecee;
+    justify-content: space-between;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+header a{
+    color: #6442d6;
+    position: relative;
+}
+
+header a:after {
+    content: '';
+    position: absolute;
+    height: 75%;
+    aspect-ratio: 1/1;
+    margin: 2.5% 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%236442d6'%3E%3Cpath d='m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z'/%3E%3C/svg%3E") center / 100% no-repeat;
+}
+
+header button{
+    background: #f1d3f900;
+    color: #1c1b1d;
+    display: inline-flex;
+    border: unset;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    cursor: pointer;
+    gap: 8px;
+    min-height: 40px;
+    outline: none !important;
+    padding-block: 11px;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+    place-content: center;
+    place-items: center;
+    position: relative;
+    font: 400 1em/1.15 'Roboto';
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    user-select: none;
+}
+
+header button:hover{
+    background: #f1d3f99f;
+}
+
+main{
+    height: calc(100vh - 80px);
+    width: calc(100% - 16px);
+    margin-bottom: 8px;
+}
+@media (orientation: landscape) {
+    main{
+        grid-template-columns: repeat(2, calc(50% - 4px));
+        gap: 8px;
+    }
+}
+@media (orientation: portrait) {
+    main{
+        grid-template-rows: repeat(2, calc(50% - 4px));
+        gap: 8px;
+    }
+}
+
+textarea{
+    background: #f8f1f680;
+    outline: unset !important;
+    border: unset;
+    border-bottom: 2px solid #4d425680;
+    border-radius: 8px 8px 0 0;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    color: #4d4256;
+    caret-color: #4d4256;
+    font: 400 1em/1.15 'Roboto Mono';
+    max-height: calc(100vh - 80px);
+}
+
+textarea:focus-visible{
+    background: #f8f1f69f;
+    border-bottom-width: 3px;
+}
+
+output{
+    display: flex;
+    border: 1px solid #e8e0e8;
+    padding: 32px;
+    box-sizing: border-box;
+    color: #4d4256;
+    border-radius: 22px;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+}
+
+output>span.katex {
+    margin: auto;
+}
