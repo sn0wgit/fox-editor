@@ -2,7 +2,6 @@
 
 body{
     background: #141314;
-    gap: 8px;
     font: 400 1em 'Roboto';
     overflow: hidden;
 }
@@ -57,26 +56,15 @@ header button:hover{
 main{
     height: calc(100vh - 80px);
     width: calc(100% - 16px);
-    margin-bottom: 8px;
-}
-@media (orientation: landscape) {
-    main{
-        grid-template-columns: repeat(2, calc(50% - 4px));
-        gap: 8px;
-    }
-}
-@media (orientation: portrait) {
-    main{
-        grid-template-rows: repeat(2, calc(50% - 4px));
-        gap: 8px;
-    }
+    margin: 8px;
+    gap: 8px;
 }
 
 textarea{
-    background: #553f5d80;
+    background: #553f5d40;
     outline: unset !important;
     border: unset;
-    border-bottom: 2px solid #e2e0fb80;
+    border-bottom: 1px solid #e2e0fb80;
     border-radius: 8px 8px 0 0;
     padding: 24px 16px;
     box-sizing: border-box;
@@ -84,10 +72,15 @@ textarea{
     caret-color: #e2e0fb;
     font: 400 1em/1.15 'Roboto Mono';
     max-height: calc(100vh - 80px);
+    transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+textarea:hover {
+    background: #45455a5e;
 }
 
 textarea:focus-visible{
-    background: #553f5d9f;
+    background: #5e5d6f8a;
     border-bottom-width: 3px;
 }
 
