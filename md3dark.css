@@ -54,7 +54,8 @@ header button:hover{
 }
 
 main{
-    height: calc(100vh - 80px);
+    flex-grow: 1;
+    height: auto;
     width: calc(100% - 16px);
     margin: 8px;
     gap: 8px;
