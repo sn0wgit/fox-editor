@@ -3,7 +3,7 @@ window.onload = (event) => {
   textarea.focus();
   textarea.value = `\\displaystyle
 
-e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\Big(1+\\cfrac1x\\Big)^x`;
+e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\Big(1+\\cfrac1x\\Big)^x`;
   const output = document.getElementById("output");
   output.innerHTML = katex.renderToString(textarea.value);
   textarea.addEventListener("input", () => {
