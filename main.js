@@ -1,7 +1,7 @@
 window.onload = (event) => {
   const textarea = document.getElementById("katex-code");
   textarea.focus();
-  textarea.value = $0.value=`\\displaystyle
+  textarea.value = `\\displaystyle
 
 e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\Big(1+\\cfrac1x\\Big)^x`;
   const output = document.getElementById("output");
