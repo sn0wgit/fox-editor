@@ -44,7 +44,7 @@ main{
     }
 }
 
-body.active main{
+body.fullscreen main{
     display: none;
     @media (orientation: landscape) {
         grid-template-columns: 1fr;
@@ -61,6 +61,6 @@ textarea {
     }
 }
 
-body.active textarea{
+body.fullscreen textarea{
     display: none;
 }
