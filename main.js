@@ -6,6 +6,7 @@ window.onload = (event) => {
   console.log(currentThemeName);
   const currentTheme = document.getElementById("theme-link");
   currentTheme.setAttribute("href", `./${currentThemeName}.css`);
+  
   const textarea = document.getElementById("katex-code");
   const output = document.getElementById("output");
   textarea.focus();
@@ -17,4 +18,9 @@ window.onload = (event) => {
   textarea.addEventListener("input", () => {
     output.innerHTML = katex.renderToString(textarea.value);
   })
+
+  const fullscreenButton = document.getElementById("fullscreen");
+  fullscreenButton.addEventListener("click", () => {
+    document.body.classList.toggle("fullscreen");
+  });
 }

@@ -44,9 +44,23 @@ main{
     }
 }
 
+body.active main{
+    display: none;
+    @media (orientation: landscape) {
+        grid-template-columns: 1fr;
+    }
+    @media (orientation: portrait) {
+        grid-template-rows: 1fr;
+    }
+}
+
 textarea {
     resize: none;
     @media (orientation: portrait) {
         order: 1;
     }
+}
+
+body.active textarea{
+    display: none;
 }
