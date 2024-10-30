@@ -37,7 +37,7 @@ body.fullscreen textarea{
 
 @media (orientation: landscape) {
     main{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     body.fullscreen main{
         grid-template-columns: 1fr;
@@ -46,7 +46,7 @@ body.fullscreen textarea{
 
 @media (orientation: portrait) {
     main{
-        grid-template-rows: 1fr;
+        grid-template-rows: 1fr 1fr;
     }
     body.fullscreen main{
         grid-template-rows: 1fr;
