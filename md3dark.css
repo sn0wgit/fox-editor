@@ -53,12 +53,43 @@ header button:hover{
     background: #553f5d80;
 }
 
+button#fullscreen {
+    margin-left: auto;
+    aspect-ratio: 1/1;
+    margin-right: 8px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") center / 50% no-repeat;
+}
+
+button#fullscreen:hover{
+    background-color: #2e2c2e;
+}
+
+body.fullscreen button#fullscreen {
+    background: #45455a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") center / 50% no-repeat;
+}
+
+body.fullscreen button#fullscreen:hover{
+    background-color: #4f4f63;
+}
+
 main{
     flex-grow: 1;
     height: auto;
     width: calc(100% - 16px);
     margin: 8px;
     gap: 8px;
+}
+
+@supports (width: 100vw){
+    main{
+        max-height: calc(100vh - 80px);
+    }
+}
+
+@supports (width: 100dvw){
+    main{
+        max-height: calc(100dvh - 80px);
+    }
 }
 
 textarea{
@@ -73,7 +104,6 @@ textarea{
     caret-color: #e2e0fb;
     font: 400 1em/1.15 'Roboto Mono';
     max-height: calc(100vh - 80px);
-    transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
 textarea:hover {
