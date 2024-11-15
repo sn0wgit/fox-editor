@@ -12,9 +12,11 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
   
   const themes = ["md3light", "md3dark", "mint"];
   const themebutton = document.getElementById("theme");
-  let currentThemeName = (localStorage.getItem("katex-theme") !== "null") ? localStorage.getItem("katex-theme") : themes[0];
-  localStorage.setItem("katex-theme", currentThemeName);
-  console.log(currentThemeName);
+  if (localStorage.getItem("katex-theme") !== "null"){
+    localStorage.setItem("katex-theme", themes[0]);
+  }
+  let currentThemeName = localStorage.getItem("katex-theme");
+  
   const currentTheme = document.getElementById("theme-link");
   currentTheme.setAttribute("href", `./${currentThemeName}.css`);
   themebutton.addEventListener("click", () => {
