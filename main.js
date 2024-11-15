@@ -12,7 +12,7 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
   
   const themes = ["md3light", "md3dark", "mint"];
   const themebutton = document.getElementById("theme");
-  if (localStorage.getItem("katex-theme") !== "null"){
+  if (localStorage.getItem("katex-theme") == null){
     localStorage.setItem("katex-theme", themes[0]);
   }
   let currentThemeName = localStorage.getItem("katex-theme");
