@@ -1,9 +1,12 @@
 window.onload = (event) => {
   const textarea = document.getElementById("katex-code");
   textarea.focus();
-  textarea.value = `\\displaystyle
+  let defaultValue = `\\displaystyle
 
-e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\Big(1+\\cfrac1x\\Big)^x`;
+e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\Big(1+\\cfrac1x\\Big)^x`
+  if (textarea.value == ""){
+    textarea.value = defaultValue;
+  };
   const output = document.getElementById("output");
   output.innerHTML = katex.renderToString(textarea.value);
   textarea.addEventListener("input", () => {
