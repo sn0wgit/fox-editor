@@ -72,3 +72,24 @@ body.fullscreen textarea{
         height: calc(100dvh - 60px);
     }
 }
+
+@media print{
+    header, textarea{
+        display: none;
+    }
+    body, main{
+        display: contents;
+    }
+    output{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        scrollbar-width: none;
+    }
+    :not(output *){
+        height: fit-content;
+        max-height: unset !important;
+        color: #000;
+        border-color: #000;
+    }
+}
