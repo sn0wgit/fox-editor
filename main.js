@@ -27,8 +27,8 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
     document.body.removeChild(element);
   }
 
-  function updateOutput(){
-    output.innerHTML = katex.renderToString(textarea.value, {
+  function updateOutput(input, output){
+    output.innerHTML = katex.renderToString(input, {
       output: "html",
       trust: true,
     });
@@ -40,11 +40,7 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
   }
   let themeName = localStorage.getItem("katex-theme");
   themeLink.setAttribute("href", `./${themeName}.css`);
-  themeButton.addEventListener("click", setupTheme());
-
-  //Initialize KaTeX
-  updateOutput();
-  textarea.addEventListener("input", updateOutput())
+  themeButton.addEventListener("click", () => setupTheme());
 
   //Initialize fullscreen button
   fullscreenButton.addEventListener("click", () => {
@@ -53,11 +49,15 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
   });
 
   //Initialize download button
-  downloadButton.addEventListener("click", download());
+  downloadButton.addEventListener("click", () => download());
 
   //Initialize input area
   if (textarea.value == ""){
     textarea.value = defaultValue;
   };
   textarea.focus();
+
+  //Initialize KaTeX
+  updateOutput(textarea.value, output);
+  textarea.addEventListener("input", () => updateOutput(textarea.value, output))
 }
