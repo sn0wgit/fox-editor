@@ -1,7 +1,8 @@
-# Simple KaTeX preview generator
-When i studied at school and we used our school laptops to do some exercises online, I had to use KaTeX generator on a strange website. Now I made my own KaTeX generator.
+# Simple KaTeX editor
 
-It is very simple to use and it is very minimalistic: link to KaTeX docs, theme button, input field and generated output. Hope it helped someone. License: [WTFPL 2](http://www.wtfpl.net/about/)
+When i studied at school and we used our school laptops to do some exercises online, I had to use [KaTeX Live Demo](https://sixthform.info/katex/examples/demo.html) that didn't suit my needs. Now I'm developing my own KaTeX editor.
+
+It is easy to use and is very minimalistic. Hope it helped someone. License: [WTFPL 2](http://www.wtfpl.net/about/)
 
 <a href="https://idx.google.com/import?url=https://github.com/sn0wgit/katex-preview-generator">
 <picture>

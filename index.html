@@ -23,18 +23,20 @@
     src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
     integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
     crossorigin="anonymous"
-    onload="renderMathInElement(document.getElementById('output'));"
+    onload="renderMathInElement(document.getElementById('katex-output'));"
   ></script>
 </head>
 <body>
   <header>
-    <a href="https://katex.org/docs/supported">KaTeX docs</a>
-    <button id="fullscreen"></button>
-    <button id="theme">Change theme</button>
+    <button class="icon-button" id="open-file">Open file</button>
+    <button class="icon-button" id="save-file">Save file</button>
+    <a class="icon-button" id="help" href="https://katex.org/docs/supported">KaTeX docs</a>
+    <button class="icon-button status-button" id="toggle-fullscreen">Toggle fullscreen</button>
+    <button class="toned-button" id="change-theme">Change theme</button>
   </header>
   <main>
-    <textarea id="katex-code"></textarea>
-    <output id="output"></output>
+    <textarea id="katex-input"></textarea>
+    <output id="katex-output"></output>
   </main>
   <script defer type="text/javascript" src="./main.js"></script>
 </body>

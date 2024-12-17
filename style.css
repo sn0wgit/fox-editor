@@ -18,6 +18,10 @@ header{
     justify-content: space-between;
 }
 
+#open-file{
+    display: none;
+}
+
 main{
     display: grid;
     width: 100%;

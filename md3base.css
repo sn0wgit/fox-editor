@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body{
+    background: var(--bg-color);
+    font: 400 1em 'Roboto';
+    overflow: hidden;
+}
+
+header{
+    height: 64px;
+    background: var(--header-color);
+    justify-content: space-between;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    gap: 8px;
+}
+
+header a{
+    color: var(--link-color);
+    position: relative;
+}
+
+.icon-button, .toned-button, .status-button{
+    background: var(--tone-bg-color);
+    color: var(--tone-text-color);
+    display: inline-flex;
+    border: unset;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    cursor: pointer;
+    gap: 8px;
+    min-height: 40px;
+    outline: none !important;
+    padding: 11px 16px;
+    place-content: center;
+    place-items: center;
+    position: relative;
+    font: 400 1em/1.15 'Roboto';
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    user-select: none;
+}
+
+.icon-button{
+    background: var(--button-icon);
+    aspect-ratio: 1/1;
+    font-size: 0;
+}
+
+.status-button{
+    background: var(--status-bg-color);
+}
+
+.status-button.icon-button{
+    background: var(--button-icon);
+}
+
+.status-button.icon-button.active{
+    background: var(--active-button-icon);
+}
+
+.icon-button:hover, .toned-button:hover{
+    background-color: var(--tone-bg-color-hover);
+}
+
+.status-button{
+    background-color: var(--status-bg-color);
+}
+
+.status-button:hover{
+    background-color: var(--status-bg-color-hover);
+}
+
+.status-button.active{
+    background-color: var(--status-active-bg-color);
+}
+
+.status-button.active:hover{
+    background-color: var(--status-active-bg-color-hover);
+}
+
+#toggle-fullscreen {
+    margin-left: auto;
+}
+
+main{
+    flex-grow: 1;
+    height: auto;
+    width: calc(100% - 16px);
+    margin: 8px;
+    gap: 8px;
+
+    @supports (width: 100vw){
+        max-height: calc(100vh - 80px);
+    }
+    
+    @supports (width: 100dvw){
+        max-height: calc(100dvh - 80px);
+    }
+}
+
+textarea{
+    background: var(--input-bg-color);
+    outline: unset !important;
+    border: unset;
+    border-bottom: 1px solid var(--input-bottom-border-color);
+    border-radius: 8px 8px 0 0;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    color: var(--regular-text-color);
+    caret-color: var(--regular-text-color);
+    font: 400 1em/1.15 'Roboto Mono';
+    max-height: calc(100vh - 80px);
+}
+
+textarea:hover {
+    background: var(--input-bg-color-hover);
+}
+
+textarea:focus-visible{
+    background: var(--input-bg-color-focus);
+    border-bottom-width: 3px;
+}
+
+output{
+    display: flex;
+    border: 1px solid var(--output-border-color);
+    padding: 32px;
+    box-sizing: border-box;
+    color: var(--regular-text-color);
+    border-radius: 22px;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+}
+
+output>span.katex {
+    margin: auto;
+}
