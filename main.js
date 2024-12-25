@@ -5,7 +5,9 @@ window.onload = () => {
   const textarea = document.getElementById("katex-input");
   const output = document.getElementById("katex-output");
   const fullscreenButton = document.getElementById("toggle-fullscreen");
-  const downloadButton = document.getElementById("save-file");
+  const openFileButton = document.getElementById("open-file");
+  const fileInputHTML = document.getElementById("file-input");
+  const saveFileButton = document.getElementById("save-file");
   const defaultValue = `\\displaystyle
 
 e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\Big(1+\\cfrac1x\\Big)^x`
@@ -16,8 +18,23 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
     themeLink.setAttribute("href", `./${themeName}.css`);
   }
 
-  function download() {
-    var element = document.createElement('a');
+  // https://stackoverflow.com/a/26298948
+  function readSingleFile(e) {
+    let file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      let contents = e.target.result;
+      textarea.value = contents;
+      updateOutput(contents, output);
+    };
+    reader.readAsText(file);
+  }
+
+  function saveFile() {
+    let element = document.createElement('a');
     element.style.display = 'none';
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textarea.value));
     element.setAttribute('download', "New Document.katex");
@@ -40,7 +57,7 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
   }
   let themeName = localStorage.getItem("katex-theme");
   themeLink.setAttribute("href", `./${themeName}.css`);
-  themeButton.addEventListener("click", () => setupTheme());
+  themeButton.addEventListener("click", () => setupTheme(), false);
 
   //Initialize fullscreen button
   fullscreenButton.addEventListener("click", () => {
@@ -48,8 +65,12 @@ e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\B
     fullscreenButton.classList.toggle("active")
   });
 
+  //Initialize file opening button
+  openFileButton.addEventListener("click", () => fileInputHTML.click());
+  fileInputHTML.addEventListener("change", readSingleFile);
+
   //Initialize download button
-  downloadButton.addEventListener("click", () => download());
+  saveFileButton.addEventListener("click", () => saveFile());
 
   //Initialize input area
   if (textarea.value == ""){

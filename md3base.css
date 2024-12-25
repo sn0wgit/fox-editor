@@ -79,10 +79,6 @@ header a{
     background-color: var(--status-active-bg-color-hover);
 }
 
-#toggle-fullscreen {
-    margin-left: auto;
-}
-
 main{
     flex-grow: 1;
     height: auto;
@@ -111,6 +107,7 @@ textarea{
     caret-color: var(--regular-text-color);
     font: 400 1em/1.15 'Roboto Mono';
     max-height: calc(100vh - 80px);
+    scrollbar-color: var(--input-bottom-border-color) var(--input-bg-color);
 }
 
 textarea:hover {
@@ -131,6 +128,7 @@ output{
     border-radius: 22px;
     max-height: calc(100vh - 80px);
     overflow: auto;
+    scrollbar-color: var(--input-bottom-border-color) #0000;
 }
 
 output>span.katex {
