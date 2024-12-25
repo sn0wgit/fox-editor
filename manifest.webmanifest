@@ -1,0 +1,70 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "short_name": "f(OX)",
+  "name": "KaTeX Editor",
+  "icons": [
+    {
+      "src": "/katex-editor/icons/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-mono.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "monochrome"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-mono-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "monochrome"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-mono-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "monochrome"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-mono-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192",
+      "purpose": "monochrome"
+    },
+    {
+      "src": "/katex-editor/icons/favicon-mono-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "monochrome"
+    }
+  ],
+  "id": "/katex-editor/",
+  "start_url": "/katex-editor/",
+  "background_color": "#fefbff",
+  "display": "standalone",
+  "scope": "/katex-editor/",
+  "theme_color": "#f2ecee",
+  "description": "Write math simply. Everywhere, on any device."
+}

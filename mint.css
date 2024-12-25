@@ -51,9 +51,9 @@ header button{
 }
 
 .icon-button#help:hover {
+    background: #68c174;
     --image: url("./icons/mint/help-about.svg") var(--size);
     mask: var(--image);
-    background: #68c174;
 }
 
 .icon-button#sidewindow {

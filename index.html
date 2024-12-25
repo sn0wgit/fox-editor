@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KaTeX preview generator</title>
-  <link media="screen" rel='stylesheet' href='./style.css'>
-  <link media="screen" rel='stylesheet' href='./md3light.css' id="theme-link">
+  <title>KaTeX Editor</title>
+  <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials" />
+  <link media="screen" rel='stylesheet' href='./style.css' />
+  <link media="screen" rel='stylesheet' href='./md3light.css' id="theme-link" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
@@ -29,7 +30,7 @@
 <body>
   <header>
     <button class="icon-button" id="open-file">Open file</button>
-    <input type="file" id="file-input" accept=".txt, .katex">
+    <input type="file" id="file-input" accept=".txt, .katex" />
     <button class="icon-button" id="save-file">Save file</button>
     <a class="icon-button" id="help" href="https://katex.org/docs/supported">KaTeX docs</a>
     <button class="icon-button status-button" id="toggle-fullscreen">Toggle fullscreen</button>

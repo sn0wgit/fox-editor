@@ -1,8 +1,8 @@
-# Simple KaTeX editor
+# <img align="right" src="/icons/favicon-mono.svg" alt="f(OX)" title="KaTeX Editor" width="15%"> KaTeX Editor
 
 When i studied at school and we used our school laptops to do some exercises online, I had to use [KaTeX Live Demo](https://sixthform.info/katex/examples/demo.html) that didn't suit my needs. Now I'm developing my own KaTeX editor.
 
-It is easy to use and is very minimalistic. Hope it helped someone. License: [WTFPL 2](http://www.wtfpl.net/about/)
+License: [WTFPL 2](http://www.wtfpl.net/about/)
 
 <a href="https://idx.google.com/import?url=https://github.com/sn0wgit/katex-preview-generator">
 <picture>
