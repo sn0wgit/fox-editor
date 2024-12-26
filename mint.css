@@ -5,6 +5,10 @@ html, body{
     overflow: hidden;
 }
 
+a {
+    color: #68c174;
+}
+
 header{
     background: #2b2b2b;
     border-bottom: 1px solid #212121;
@@ -13,10 +17,6 @@ header{
     box-sizing: border-box;
     gap: 4px;
     justify-content: flex-end;
-}
-
-header a:hover {
-    color: #68c174;
 }
 
 header button{
