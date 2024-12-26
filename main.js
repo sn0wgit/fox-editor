@@ -8,9 +8,19 @@ window.onload = () => {
   const openFileButton = document.getElementById("open-file");
   const fileInputHTML = document.getElementById("file-input");
   const saveFileButton = document.getElementById("save-file");
-  const defaultValue = `\\displaystyle
+  const defaultValue = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
 
-e=\\sum^\\infin_{n=0}\\cfrac1{n!}\\Leftrightarrow\\lim_{x\\rightarrow\\infin}\\Big(1+\\cfrac1x\\Big)^x`
+\\normalsize\\text{Start writing math today!}\\\\
+
+\\text{Useful links: }
+\\href{https://katex.org/docs/supported}{\\text{\\KaTeX~documentation}}, \\href{https://github.com/sn0wgit/katex-editor}{
+  \\text{Project on}~
+  \\includegraphics[height=0.9em, width=0.9em, alt=GitHub]{https://github.com/fluidicon.png}
+}
+
+\\\\[1em]
+
+\\footnotesize\\text{🤫 You can use browser built-in \\textbf{Print} feauture to print the document content}`
 
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
