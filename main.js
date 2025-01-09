@@ -13,7 +13,19 @@ window.onload = () => {
   const saveFileButton = document.getElementById("save-file");
   const printButton = document.getElementById("print");
   const duoWindowButton = document.getElementById("duowindow");
-  const welcomeMessage = 
+  const welcomeMessage = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
+
+\\normalsize\\text{Start writing math today!}\\\\
+
+\\text{Useful links: }
+\\href{https://katex.org/docs/supported}{\\text{\\KaTeX~documentation}}, \\href{https://github.com/sn0wgit/katex-editor}{
+  \\text{Project on}~
+  \\includegraphics[height=0.9em, width=0.9em, alt=GitHub]{https://github.com/fluidicon.png}
+}
+
+\\\\[1em]
+
+\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`
 
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
