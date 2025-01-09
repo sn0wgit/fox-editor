@@ -54,7 +54,7 @@ header{
     background: var(--button-icon);
 }
 
-.status-button.icon-button.active{
+.icon-button.active{
     background: var(--active-button-icon);
 }
 

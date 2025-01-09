@@ -1,4 +1,5 @@
 window.onload = () => {
+  let sideWindow;
   const themeList = ["md3light", "md3dark", "mint"];
   const themeColors = ["#f2ecee", "#211f21", "#2b2b2b"];
   const themeButton = document.getElementById("change-theme");
@@ -11,19 +12,8 @@ window.onload = () => {
   const fileInputHTML = document.getElementById("file-input");
   const saveFileButton = document.getElementById("save-file");
   const printButton = document.getElementById("print");
-  const welcomeMessage = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
-
-\\normalsize\\text{Start writing math today!}\\\\
-
-\\text{Useful links: }
-\\href{https://katex.org/docs/supported}{\\text{\\KaTeX~documentation}}, \\href{https://github.com/sn0wgit/katex-editor}{
-  \\text{Project on}~
-  \\includegraphics[height=0.9em, width=0.9em, alt=GitHub]{https://github.com/fluidicon.png}
-}
-
-\\\\[1em]
-
-\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`
+  const duoWindowButton = document.getElementById("duowindow");
+  const welcomeMessage = 
 
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
@@ -59,14 +49,41 @@ window.onload = () => {
   }
 
   function updateOutput(input, output){
-    output.innerHTML = katex.renderToString(input, {
-      output: "html",
-      trust: true,
-    });
+    if (!sideWindow || sideWindow.closed && !document.body.classList.contains("duowindow")){
+      output.innerHTML = katex.renderToString(input, {
+        output: "html",
+        trust: true,
+      });
+    } else {
+      localStorage.setItem("fox-value", input);
+    }
   }
 
   function print(){
+    output.innerHTML = katex.renderToString(textarea.value, {
+      output: "html",
+      trust: true,
+    });
     window.print();
+  }
+
+  function sideWindowClosed(){
+    duoWindowButton.classList.remove("active");
+    sideWindow.removeEventListener("beforeunload", sideWindowClosed)
+  }
+
+  function openSideWindow(){
+    if (!sideWindow || sideWindow.closed && !document.body.classList.contains("duowindow")) {
+      sideWindow = window.open("./sidewindow/", "sidewindow", 'height=600px,width=800px');
+      sideWindow.addEventListener("beforeunload", sideWindowClosed)
+      
+      duoWindowButton.classList.add("active");
+      document.body.classList.add("duowindow");
+    } else {
+      sideWindow = sideWindow.close();
+      duoWindowButton.classList.remove("active");
+      document.body.classList.remove("duowindow");
+    }
   }
   
   //Initialize themes
@@ -89,14 +106,19 @@ window.onload = () => {
   fileInputHTML.addEventListener("change", readSingleFile);
 
   //Initialize download button
-  saveFileButton.addEventListener("click", () => saveFile());
+  saveFileButton.addEventListener("click", saveFile);
 
   //Initialize print button
-  printButton.addEventListener("click", () => print());
+  printButton.addEventListener("click", print);
+
+  //Initialize duowindow button
+  duoWindowButton.addEventListener("click", openSideWindow);
 
   //Initialize input area
   if (newUser){
     textarea.value = welcomeMessage;
+  } else {
+    textarea.value = localStorage.getItem("fox-value") || "";
   };
   textarea.focus();
 
