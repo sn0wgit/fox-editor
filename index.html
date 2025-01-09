@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f2ecee" />
+  <meta name="theme-color" content="#f2ecee" id="theme-color" />
   <title>KaTeX Editor</title>
   <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials" />
   <link media="screen" rel='stylesheet' href='./style.css' />
   <link media="screen" rel='stylesheet' href='./md3light.css' id="theme-link" />
+  <link media="print" rel='stylesheet' href='./print.css'/>
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
@@ -33,6 +34,7 @@
     <button class="icon-button" id="open-file">Open file</button>
     <input type="file" id="file-input" accept=".txt, .katex" />
     <button class="icon-button" id="save-file">Save file</button>
+    <button class="icon-button" id="print">Print</button>
     <a class="icon-button" id="help" href="https://katex.org/docs/supported">KaTeX docs</a>
     <button class="icon-button status-button" id="toggle-fullscreen">Toggle fullscreen</button>
     <button class="toned-button" id="change-theme">Change theme</button>

@@ -1,14 +1,17 @@
 window.onload = () => {
   const themeList = ["md3light", "md3dark", "mint"];
+  const themeColors = ["#f2ecee", "#211f21", "#2b2b2b"];
   const themeButton = document.getElementById("change-theme");
   const themeLink = document.getElementById("theme-link");
+  const themeColor = document.getElementById("theme-color");
   const textarea = document.getElementById("katex-input");
   const output = document.getElementById("katex-output");
   const fullscreenButton = document.getElementById("toggle-fullscreen");
   const openFileButton = document.getElementById("open-file");
   const fileInputHTML = document.getElementById("file-input");
   const saveFileButton = document.getElementById("save-file");
-  const defaultValue = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
+  const printButton = document.getElementById("print");
+  const welcomeMessage = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
 
 \\normalsize\\text{Start writing math today!}\\\\
 
@@ -20,12 +23,13 @@ window.onload = () => {
 
 \\\\[1em]
 
-\\footnotesize\\text{🤫 You can use browser built-in \\textbf{Print} feauture to print the document content}`
+\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`
 
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
     localStorage.setItem("katex-theme", themeName);
     themeLink.setAttribute("href", `./${themeName}.css`);
+    themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)])
   }
 
   // https://stackoverflow.com/a/26298948
@@ -60,8 +64,13 @@ window.onload = () => {
       trust: true,
     });
   }
+
+  function print(){
+    window.print();
+  }
   
   //Initialize themes
+  const newUser = localStorage.getItem("katex-theme") == null
   if (localStorage.getItem("katex-theme") == null){
     localStorage.setItem("katex-theme", themeList[0]);
   }
@@ -82,9 +91,12 @@ window.onload = () => {
   //Initialize download button
   saveFileButton.addEventListener("click", () => saveFile());
 
+  //Initialize print button
+  printButton.addEventListener("click", () => print());
+
   //Initialize input area
-  if (textarea.value == ""){
-    textarea.value = defaultValue;
+  if (newUser){
+    textarea.value = welcomeMessage;
   };
   textarea.focus();
 

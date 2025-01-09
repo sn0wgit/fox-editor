@@ -45,6 +45,10 @@ header button{
     --image: url("./icons/mint/document-save.svg") var(--size);
 }
 
+.icon-button#print {
+    --image: url("./icons/mint/printer-printing-symbolic.svg") var(--size);
+}
+
 .icon-button#help {
     --image: url("./icons/mint/help-about.svg") var(--size);
     border-radius: 50%;
