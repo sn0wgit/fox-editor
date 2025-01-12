@@ -24,7 +24,7 @@ header button{
     border: 1px solid #2b2b2b;
     padding: 0.5em;
     border-radius: 3px;
-    font: 400 0.75em Ubuntu;
+    font: 400 0.75em "Ubuntu";
     color: #d5d5d5;
 }
 
@@ -54,9 +54,8 @@ header button{
     border-radius: 50%;
 }
 
-.icon-button#help:hover {
+.icon-button#help:hover, .icon-button#help:focus {
     background: #68c174;
-    --image: url("./icons/mint/help-about.svg") var(--size);
     mask: var(--image);
 }
 
@@ -102,7 +101,7 @@ textarea {
     border-radius: 2px;
     caret-color: #35a854;
     color: #fff;
-    font: 400 1em 'Ubuntu Mono';
+    font: 400 1em "Ubuntu Mono";
     margin: 0;
     padding: 12px;
     box-sizing: border-box;
@@ -131,6 +130,12 @@ output{
 
 output>span.katex {
     margin: auto;
+}
+
+.katex-html a:focus-visible {
+    background: #68c174;
+    color: #fff;
+    outline: 1px solid #202020;
 }
 
 @supports (scrollbar-color: auto){
