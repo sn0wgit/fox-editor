@@ -1,8 +1,13 @@
-body{
+body {
     background-color: #fefbff;
     color: #4d4256;
 }
 
-a{
+a {
     color: #6442d6;
+}
+
+:focus-visible {
+    background: #e8e0e8;
+    outline-color: #6442d6;
 }

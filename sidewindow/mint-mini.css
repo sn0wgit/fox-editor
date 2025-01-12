@@ -1,8 +1,14 @@
-body{
+body {
     background-color: #515151;
     color: #fff;
 }
 
-a{
+a {
     color: #68c174;
+}
+
+:focus-visible {
+    background: #68c174;
+    color: #fff;
+    outline: 1px solid #202020;
 }

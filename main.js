@@ -61,13 +61,12 @@ window.onload = () => {
   }
 
   function updateOutput(input, output){
+    localStorage.setItem("fox-value", input);
     if (!sideWindow || sideWindow.closed && !document.body.classList.contains("duowindow")){
       output.innerHTML = katex.renderToString(input, {
         output: "html",
         trust: true,
       });
-    } else {
-      localStorage.setItem("fox-value", input);
     }
   }
 
@@ -80,8 +79,10 @@ window.onload = () => {
   }
 
   function sideWindowClosed(){
+    sideWindow.removeEventListener("beforeunload", sideWindowClosed);
     duoWindowButton.classList.remove("active");
-    sideWindow.removeEventListener("beforeunload", sideWindowClosed)
+    document.body.classList.remove("duowindow");
+    updateOutput(textarea.value, output);
   }
 
   function openSideWindow(){
@@ -95,6 +96,7 @@ window.onload = () => {
       sideWindow = sideWindow.close();
       duoWindowButton.classList.remove("active");
       document.body.classList.remove("duowindow");
+      updateOutput(textarea.value, output);
     }
   }
   
@@ -128,10 +130,9 @@ window.onload = () => {
 
   //Initialize input area
   if (newUser){
-    textarea.value = welcomeMessage;
-  } else {
-    textarea.value = localStorage.getItem("fox-value") || "";
-  };
+    localStorage.setItem("fox-value", welcomeMessage);
+  }
+  textarea.value = localStorage.getItem("fox-value") || "";
   textarea.focus();
 
   //Initialize KaTeX
