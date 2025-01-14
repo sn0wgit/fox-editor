@@ -1,7 +1,12 @@
+html{
+    scrollbar-color: #1c1e20 #0000;
+}
+
 body {
     background-color: #000;
     color: #fff;
     padding: 16px;
+    scrollbar-color: #1c1e20 #0000;
 }
 
 a {
