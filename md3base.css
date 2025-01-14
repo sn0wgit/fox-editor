@@ -4,6 +4,7 @@ body{
     background: var(--bg-color);
     font: 400 1em 'Roboto';
     overflow: hidden;
+    outline-color: var(--outline-color);
 }
 
 a{
@@ -29,7 +30,6 @@ header{
     cursor: pointer;
     gap: 8px;
     min-height: 40px;
-    outline: none !important;
     padding: 11px 16px;
     place-content: center;
     place-items: center;
@@ -58,9 +58,12 @@ header{
     background: var(--active-button-icon);
 }
 
-.icon-button:hover, .toned-button:hover,
-.icon-button:focus, .toned-button:focus{
+.icon-button:hover, .toned-button:hover{
     background-color: var(--tone-bg-color-hover);
+}
+
+.icon-button:focus-visible, .toned-button:focus-visible{
+    outline: 2px solid var(--outline-color);
 }
 
 .status-button{
@@ -137,5 +140,5 @@ output>span.katex {
 
 .katex-html a:focus-visible {
     background: var(--output-border-color);
-    outline-color: var(--link-color);
+    outline-color: var(--outline-color);
 }

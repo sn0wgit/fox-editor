@@ -1,5 +1,4 @@
 window.onload = () => {
-    const themeList = ["md3light", "md3dark", "mint"];
     const themeLink = document.getElementById("theme-link")
     if (localStorage.getItem("katex-theme") == null){
         localStorage.setItem("katex-theme", themeList[0]);

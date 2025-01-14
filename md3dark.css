@@ -2,6 +2,7 @@
 
 :root{
     --bg-color: #141314;
+    --outline-color: #e6e1e3;
     --regular-text-color: #e2e0fb;
     --header-color: #211f21;
     --link-color: #9f86ff;
@@ -40,11 +41,15 @@
     --button-icon: url("./icons/md3dark/print_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
 }
 
+.icon-button#help{
+    --button-icon: url("./icons/md3dark/developer_guide_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+}
+
 .icon-button#duowindow{
     --button-icon: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
     --active-button-icon: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
 }
 
-.icon-button#help{
-    --button-icon: url("./icons/md3dark/developer_guide_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+.icon-button#change-theme{
+    --button-icon: url("./icons/md3dark/palette_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
 }

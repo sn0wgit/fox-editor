@@ -1,6 +1,6 @@
 window.onload = () => {
   let sideWindow;
-  const themeList = ["md3light", "md3dark", "mint"];
+  const themeList = ["md3light", "md3dark", "amoled", "mint"];
   const themeColors = ["#f2ecee", "#211f21", "#2b2b2b"];
   const themeButton = document.getElementById("change-theme");
   const themeLink = document.getElementById("theme-link");
