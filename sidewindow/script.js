@@ -12,8 +12,14 @@ window.onload = () => {
 };
 
 window.onstorage = () => {
-    document.body.innerHTML = katex.renderToString(localStorage.getItem("fox-value"), {
-        output: "html",
-        trust: true,
-    });
+    if (!document.getElementById("theme-link").getAttribute("href").includes(localStorage.getItem("katex-theme"))){
+        /* if #theme-link[href*="%theme_name%"] is false, than update theme css*/
+        document.getElementById("theme-link").setAttribute("href", `./${localStorage.getItem("katex-theme")}-mini.css`);
+        /* otherwise that means that input is changed, so render have to be updated */
+    } else {
+        document.body.innerHTML = katex.renderToString(localStorage.getItem("fox-value"), {
+            output: "html",
+            trust: true,
+        });
+    }
 }
