@@ -39,7 +39,7 @@ textarea {
     }
 }
 
-body.fullscreen textarea{
+body.fullscreen:not(.duowindow) textarea{
     display: none;
 }
 
