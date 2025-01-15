@@ -73,6 +73,16 @@ main{
     flex-grow: 1;
     height: auto;
     width: 100%;
+    --maxsize: 100%;
+    max-height: calc(var(--maxsize) - 34px);
+
+    @supports (width: 100vh){
+        --maxsize: 100vh;
+    }
+    
+    @supports (width: 100dvh){
+        --maxsize: 100dvh;
+    }
 }
 
 textarea{

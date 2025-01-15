@@ -88,13 +88,15 @@ main{
     width: calc(100% - 16px);
     margin: 8px;
     gap: 8px;
+    --maxsize: 100%;
+    max-height: calc(var(--maxsize) - 34px);
 
-    @supports (width: 100vw){
-        max-height: calc(100vh - 80px);
+    @supports (width: 100vh){
+        --maxsize: 100vh;
     }
     
-    @supports (width: 100dvw){
-        max-height: calc(100dvh - 80px);
+    @supports (width: 100dvh){
+        --maxsize: 100dvh;
     }
 }
 
