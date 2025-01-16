@@ -111,6 +111,10 @@ textarea:focus-visible{
     scrollbar-color: var(--scrollbar-hover-color) #0000;
 }
 
+body.duowindow textarea{
+    border: 0 !important;
+}
+
 output{
     display: flex;
     border: 1px solid var(--output-border-color);
