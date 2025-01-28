@@ -134,6 +134,9 @@ output{
     max-height: calc(100vh - 80px);
     overflow: auto;
     scrollbar-color: var(--input-bottom-border-color) #0000;
+    @media (orientation: portrait){
+        max-height: calc(50vh - 44px);
+    }
 }
 
 output>span.katex {
