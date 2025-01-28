@@ -134,7 +134,10 @@ output{
     max-height: calc(100vh - 80px);
     overflow: auto;
     scrollbar-color: var(--input-bottom-border-color) #0000;
-    @media (orientation: portrait){
+}
+
+@media (orientation: portrait){
+    body:not(.fullscreen) output{
         max-height: calc(50vh - 44px);
     }
 }
