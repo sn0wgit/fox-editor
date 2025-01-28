@@ -89,7 +89,7 @@ main{
     margin: 8px;
     gap: 8px;
     --maxsize: 100%;
-    max-height: calc(var(--maxsize) - 34px);
+    max-height: calc(var(--maxsize) - 80px);
 
     @supports (width: 100vh){
         --maxsize: 100vh;
@@ -111,7 +111,6 @@ textarea{
     color: var(--regular-text-color);
     caret-color: var(--regular-text-color);
     font: 400 1em/1.15 'Roboto Mono';
-    max-height: calc(100vh - 80px);
     scrollbar-color: var(--input-bottom-border-color) var(--input-bg-color);
 }
 
@@ -131,15 +130,8 @@ output{
     box-sizing: border-box;
     color: var(--regular-text-color);
     border-radius: 22px;
-    max-height: calc(100vh - 80px);
     overflow: auto;
     scrollbar-color: var(--input-bottom-border-color) #0000;
-}
-
-@media (orientation: portrait){
-    body:not(.fullscreen) output{
-        max-height: calc(50vh - 44px);
-    }
 }
 
 output>span.katex {
