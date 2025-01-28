@@ -14,10 +14,10 @@ a{
 header{
     height: 64px;
     background: var(--header-color);
-    justify-content: space-between;
     padding: 8px 12px;
     box-sizing: border-box;
     gap: 8px;
+    scrollbar-color: var(--input-bottom-border-color) var(--header-color);
 }
 
 .icon-button, .toned-button, .status-button{

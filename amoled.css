@@ -18,10 +18,10 @@ header{
     height: 34px;
     background: var(--header-color);
     border-bottom: 1px solid var(--border-color);
-    justify-content: space-between;
     padding: 4px;
     box-sizing: border-box;
     gap: 4px;
+    scrollbar-color: var(--scrollbar-color) #0000;
 }
 
 .icon-button, .toned-button, .status-button{
