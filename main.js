@@ -38,7 +38,7 @@ window.onload = () => {
   }
 
   function renameFilePopup(){
-    dialogNewFileName.showModal();
+    //dialogNewFileName.showModal();
     localStorage.setItem("fox-filename", prompt("Input new file name:"));
     updateFileName();
   }
