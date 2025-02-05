@@ -18,7 +18,7 @@ window.onload = () => {
   const dialogSettings = document.getElementById("settings");
   const commonFileName = "New Document.katex";
   const welcomeMessage = `\\def\\fOX{f(O_X)}
-{\\LARGE\\textbf{Welcome to }\\bm\\fOX\\textbf{ editor!}}\\
+{\\LARGE\\textbf{Welcome to }\\bm\\fOX\\textbf{ editor!}}\\\\
 
 \\normalsize\\text{Start writing math today!}\\\\
 
