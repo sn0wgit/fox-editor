@@ -17,7 +17,8 @@ window.onload = () => {
   const dialogNewFileName = document.getElementById("new-filename");
   const dialogSettings = document.getElementById("settings");
   const commonFileName = "New Document.katex";
-  const welcomeMessage = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
+  const welcomeMessage = `\\def\\fOX{f(O_X)}
+{\\LARGE\\textbf{Welcome to }\\bm\\fOX\\textbf{ editor!}}\\
 
 \\normalsize\\text{Start writing math today!}\\\\
 
