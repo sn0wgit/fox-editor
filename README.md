@@ -1,6 +1,6 @@
-# <img align="right" src="/icons/favicon/normal-mono.svg" alt="f(O_X)" title="KaTeX Editor" width="10%"> KaTeX Editor
+# <img align="right" src="/icons/favicon/normal-mono.svg" alt="f(O_X)" title="KaTeX Editor" width="10%"> fOX Editor
 
-When i studied at school and we used our school laptops to do some exercises online, I had to use [KaTeX Live Demo](https://sixthform.info/katex/examples/demo.html) that didn't suit my needs. Now I'm developing my own KaTeX editor.
+When I studied at school and we used our school laptops to do some exercises online, I had to use [KaTeX Live Demo](https://sixthform.info/katex/examples/demo.html) that didn't suit my needs. Now I'm developing my own KaTeX formula editor.
 
 License: [WTFPL 2](http://www.wtfpl.net/about/)
 
