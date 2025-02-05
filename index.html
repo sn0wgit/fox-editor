@@ -35,6 +35,7 @@
     <button class="icon-button" id="open-file">Open file</button>
     <input type="file" id="file-input" accept=".txt, .katex" />
     <button class="icon-button" id="save-file">Save file</button>
+    <button class="icon-button" id="rename-file">Rename</button>
     <button class="icon-button" id="print">Print</button>
     <a class="icon-button" id="help" href="https://katex.org/docs/supported">KaTeX docs</a>
     <button class="icon-button status-button" id="duowindow">Open output in new window</button>
@@ -45,6 +46,13 @@
     <textarea id="katex-input"></textarea>
     <output id="katex-output"></output>
   </main>
+  <dialog id="new-filename">
+    <form>
+      <label>Input new file name:</label>
+      <input/>
+    </form>
+  </dialog>
+  <dialog id="settings"></dialog>
   <script defer type="text/javascript" src="./main.js"></script>
 </body>
 </html>

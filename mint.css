@@ -50,6 +50,10 @@ header button{
     --image: url("./icons/mint/document-save.svg") var(--size);
 }
 
+.icon-button#rename-file {
+    --image: url("./icons/mint/rename.svg") var(--size);
+}
+
 .icon-button#print {
     --image: url("./icons/mint/printer-printing-symbolic.svg") var(--size);
 }

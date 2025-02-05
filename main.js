@@ -11,8 +11,12 @@ window.onload = () => {
   const openFileButton = document.getElementById("open-file");
   const fileInputHTML = document.getElementById("file-input");
   const saveFileButton = document.getElementById("save-file");
+  const renameFileButton = document.getElementById("rename-file");
   const printButton = document.getElementById("print");
   const duoWindowButton = document.getElementById("duowindow");
+  const dialogNewFileName = document.getElementById("new-filename");
+  const dialogSettings = document.getElementById("settings");
+  const commonFileName = "New Document.katex";
   const welcomeMessage = `\\textbf{\\LARGE{\\text{Welcome to }\\KaTeX\\text{ editor!}}}\\\\
 
 \\normalsize\\text{Start writing math today!}\\\\
@@ -25,11 +29,27 @@ window.onload = () => {
 
 \\\\[1em]
 
-\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`
+\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`;
+
+  let fileName = localStorage.getItem("fox-filename") || commonFileName;
+  if (fileName != commonFileName){
+    document.title = fileName;
+  }
+
+  function renameFilePopup(){
+    dialogNewFileName.showModal();
+    localStorage.setItem("fox-filename", prompt("Input new file name:"));
+    updateFileName();
+  }
+
+  function updateFileName(){
+    fileName = localStorage.getItem("fox-filename");
+    document.title = fileName;
+  }
 
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
-    localStorage.setItem("katex-theme", themeName);
+    localStorage.setItem("fox-theme", themeName);
     themeLink.setAttribute("href", `./${themeName}.css`);
     themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)])
   }
@@ -43,6 +63,8 @@ window.onload = () => {
     let reader = new FileReader();
     reader.onload = function(e) {
       let contents = e.target.result;
+      localStorage.setItem("fox-filename", file.name || commonFileName);
+      updateFileName();
       textarea.value = contents;
       updateOutput(contents, output);
     };
@@ -53,7 +75,7 @@ window.onload = () => {
     let element = document.createElement('a');
     element.style.display = 'none';
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textarea.value));
-    element.setAttribute('download', "New Document.katex");
+    element.setAttribute('download', fileName);
   
     document.body.appendChild(element);
     element.click();
@@ -101,11 +123,11 @@ window.onload = () => {
   }
   
   //Initialize themes
-  const newUser = localStorage.getItem("katex-theme") == null
-  if (localStorage.getItem("katex-theme") == null){
-    localStorage.setItem("katex-theme", themeList[0]);
+  const newUser = localStorage.getItem("fox-theme") == null
+  if (localStorage.getItem("fox-theme") == null){
+    localStorage.setItem("fox-theme", themeList[0]);
   }
-  let themeName = localStorage.getItem("katex-theme");
+  let themeName = localStorage.getItem("fox-theme");
   themeLink.setAttribute("href", `./${themeName}.css`);
   themeButton.addEventListener("click", () => setupTheme(), false);
 
@@ -121,6 +143,9 @@ window.onload = () => {
 
   //Initialize download button
   saveFileButton.addEventListener("click", saveFile);
+
+  //Initialize rename button
+  renameFileButton.addEventListener("click", renameFilePopup);
 
   //Initialize print button
   printButton.addEventListener("click", print);

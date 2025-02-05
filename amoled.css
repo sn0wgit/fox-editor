@@ -165,6 +165,10 @@ output>span.katex {
     --button-icon: url("./icons/amoled/save.svg") var(--icon-button-icon-size);
 }
 
+.icon-button#rename-file{
+    --button-icon: url("./icons/amoled/rename.svg") var(--icon-button-icon-size);
+}
+
 .icon-button#print{
     --button-icon: url("./icons/amoled/file-pdf.svg") var(--icon-button-icon-size);
 }

@@ -142,3 +142,43 @@ output>span.katex {
     background: var(--output-border-color);
     outline-color: var(--outline-color);
 }
+
+dialog {
+    border: 0;
+    border-radius: 1.25em;
+    width: min(360px, 100%);
+    background: var(--bg-color);
+    padding: 1.25em;
+}
+
+::backdrop {
+    background: #00000040;
+}
+
+form{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.5em;
+}
+
+form label{
+    color: var(--regular-text-color);
+}
+
+form input {
+    height: 36px;
+    border-radius: 3px;
+    border: 1px solid var(--input-bottom-border-color);
+    background: var(--input-bg-color);
+    caret-color: var(--regular-text-color);
+    color: var(--regular-text-color);
+    padding: 0 8px;
+}
+
+form input:hover {
+    background: var(--input-bg-color-hover);
+}
+
+form input:focus{
+    outline: 1px solid var(--input-bottom-border-color);
+}

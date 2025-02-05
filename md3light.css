@@ -37,6 +37,10 @@
     --button-icon: url("./icons/md3light/save_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
 }
 
+.icon-button#rename-file{
+    --button-icon: url("./icons/md3light/edit_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+}
+
 .icon-button#print{
     --button-icon: url("./icons/md3light/print_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
 }
