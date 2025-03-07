@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+:root{
+    --icon-size: 24px;
+    --h-icon-size: center / var(--icon-size) no-repeat;
+}
+
 body{
     background: var(--bg-color);
     font: 400 1em 'Roboto';
@@ -41,7 +46,7 @@ header{
 }
 
 .icon-button{
-    background: var(--button-icon);
+    background: var(--icon-image);
     aspect-ratio: 1/1;
     font-size: 0;
 }
@@ -51,11 +56,11 @@ header{
 }
 
 .status-button.icon-button{
-    background: var(--button-icon);
+    background: var(--icon-image);
 }
 
 .icon-button.active{
-    background: var(--active-button-icon);
+    background: var(--icon-image-active);
 }
 
 .icon-button:hover, .toned-button:hover{
@@ -141,6 +146,21 @@ output>span.katex {
 .katex-html a:focus-visible {
     background: var(--output-border-color);
     outline-color: var(--outline-color);
+}
+
+output :is(
+    #fox-open-file,
+    #fox-save-file,
+    #fox-rename-file,
+    #fox-print,
+    #fox-docs,
+    #fox-duowindow
+) {
+    display: inline-block;
+    vertical-align: bottom;
+    background: var(--icon-image);
+    width: var(--icon-size);
+    height: var(--icon-size);
 }
 
 dialog {

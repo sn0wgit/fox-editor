@@ -24,7 +24,7 @@ header{
     display: none;
 }
 
-#help {
+#fox-docs {
     margin-right: auto;
 }
 
@@ -45,7 +45,7 @@ body.fullscreen:not(.duowindow) textarea{
     display: none;
 }
 
-body.duowindow :is(#toggle-fullscreen, output){
+body.duowindow :is(#fox-toggle-fullscreen, output){
     display: none;
 }
 
@@ -70,7 +70,7 @@ body.duowindow main{
     body.fullscreen main{
         grid-template-rows: 1fr;
     }
-    body:not(.duowindow) #duowindow{display: none;}
+    body:not(.duowindow) #fox-duowindow{display: none;}
 }
 
 @supports (width: 100vw){

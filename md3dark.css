@@ -18,42 +18,41 @@
     --input-bottom-border-color: #e2e0fb80;
     --input-bg-color-focus: #5e5d6f8a;
     --output-border-color: #4d4256;
-    --icon-button-icon-size-60: center / 60% no-repeat;
 }
 
-.icon-button#toggle-fullscreen {
-    --button-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") var(--icon-button-icon-size-60);
+#fox-toggle-fullscreen {
+    --icon-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") var(--h-icon-size);
 }
 
-.icon-button.active#toggle-fullscreen {
-    --active-button-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") var(--icon-button-icon-size-60);
+#fox-toggle-fullscreen.active {
+    --icon-image-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e2e0fb'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") var(--h-icon-size);
 }
 
-.icon-button#open-file{
-    --button-icon: url("./icons/md3dark/file_open_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-open-file{
+    --icon-image: url("./icons/md3dark/file_open_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#save-file{
-    --button-icon: url("./icons/md3dark/save_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-save-file{
+    --icon-image: url("./icons/md3dark/save_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#rename-file{
-    --button-icon: url("./icons/md3dark/edit_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-rename-file{
+    --icon-image: url("./icons/md3dark/edit_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#print{
-    --button-icon: url("./icons/md3dark/print_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-print{
+    --icon-image: url("./icons/md3dark/print_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#help{
-    --button-icon: url("./icons/md3dark/developer_guide_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-docs{
+    --icon-image: url("./icons/md3dark/developer_guide_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#duowindow{
-    --button-icon: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
-    --active-button-icon: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-duowindow{
+    --icon-image: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image-active: url("./icons/md3dark/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }
 
-.icon-button#change-theme{
-    --button-icon: url("./icons/md3dark/palette_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--icon-button-icon-size-60);
+#fox-change-theme{
+    --icon-image: url("./icons/md3dark/palette_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
 }

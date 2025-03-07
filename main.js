@@ -2,35 +2,43 @@ window.onload = () => {
   let sideWindow;
   const themeList = ["md3light", "md3dark", "amoled", "mint"];
   const themeColors = ["#f2ecee", "#211f21", "#050b09", "#2b2b2b"];
-  const themeButton = document.getElementById("change-theme");
+  const themeButton = document.getElementById("fox-change-theme");
   const themeLink = document.getElementById("theme-link");
   const themeColor = document.getElementById("theme-color");
   const textarea = document.getElementById("katex-input");
   const output = document.getElementById("katex-output");
-  const fullscreenButton = document.getElementById("toggle-fullscreen");
-  const openFileButton = document.getElementById("open-file");
+  const fullscreenButton = document.getElementById("fox-toggle-fullscreen");
+  const openFileButton = document.getElementById("fox-open-file");
   const fileInputHTML = document.getElementById("file-input");
-  const saveFileButton = document.getElementById("save-file");
-  const renameFileButton = document.getElementById("rename-file");
-  const printButton = document.getElementById("print");
-  const duoWindowButton = document.getElementById("duowindow");
-  const dialogNewFileName = document.getElementById("new-filename");
-  const dialogSettings = document.getElementById("settings");
+  const saveFileButton = document.getElementById("fox-save-file");
+  const renameFileButton = document.getElementById("fox-rename-file");
+  const printButton = document.getElementById("fox-print");
+  const duoWindowButton = document.getElementById("fox-duowindow");
+  const dialogNewFileName = document.getElementById("fox-new-filename");
+  const dialogSettings = document.getElementById("fox-settings");
   const commonFileName = "New Document.katex";
   const welcomeMessage = `\\def\\fOX{f(O_X)}
-{\\LARGE\\textbf{Welcome to }\\bm\\fOX\\textbf{ editor!}}\\\\
 
-\\normalsize\\text{Start writing math today!}\\\\
 
-\\text{Useful links: }
-\\href{https://katex.org/docs/supported}{\\text{\\KaTeX~documentation}}, \\href{https://github.com/sn0wgit/katex-editor}{
-  \\text{Project on}~
-  \\includegraphics[height=0.9em, width=0.9em, alt=GitHub]{https://github.com/fluidicon.png}
-}
+\\htmlStyle{margin: 0 2.25em;}{\\LARGE\\textbf{Welcome to }\\href{https://github.com/sn0wgit/katex-editor}{\\bm\\fOX\\textbf{ editor}}\\textbf!}\\\\
 
-\\\\[1em]
+\\htmlStyle{margin: 0 7.8em;}{\\text{Start writing math today!}}\\\\[0.5em]
 
-\\footnotesize\\text{🤫 You can use \\textbf{Print} feauture to print the document content}`;
+
+{\\large\\textbf{Hints}}\\\\
+
+
+\\htmlId{fox-open-file}{}\\text{ opens file from your device}\\\\
+
+\\htmlId{fox-save-file}{}\\text{ saves file}\\\\
+
+\\htmlId{fox-rename-file}{}\\text{ renames file}\\\\
+
+\\htmlId{fox-print}{}\\text{ prints render (in some browsers}\\rightarrow\\text{saves as PDF)}\\\\
+
+\\htmlId{fox-docs}{}\\text{ opens }\\href{https://katex.org/docs/supported}{\\KaTeX\\text{ documentation}}\\text{ in new tab}\\\\
+
+\\htmlId{fox-duowindow}{}\\text{ opens render in new tab (useful for presentations or similar)}`;
 
   let fileName = localStorage.getItem("fox-filename") || commonFileName;
   if (fileName != commonFileName){

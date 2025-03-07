@@ -25,7 +25,7 @@ header{
 }
 
 .icon-button, .toned-button, .status-button{
-    background: var(--tone-bg-color);
+    background: var(--icon-button-icon-size);
     color: var(--tone-text-color);
     display: inline-flex;
     border: unset;
@@ -46,21 +46,21 @@ header{
 }
 
 .icon-button{
-    background: var(--button-icon);
+    background-image: var(--icon-image);
     aspect-ratio: 1/1;
     font-size: 0;
 }
 
 .status-button{
-    background: var(--status-bg-color);
+    background-color: var(--status-bg-color);
 }
 
 .status-button.icon-button{
-    background: var(--button-icon);
+    background-image: var(--icon-image);
 }
 
 .icon-button.active{
-    background: var(--active-button-icon);
+    background-image: var(--icon-image-active);
 }
 
 .icon-button:hover, .toned-button:hover,
@@ -135,6 +135,21 @@ output>span.katex {
     outline-color: var(--link-color);
 }
 
+output :is(
+    #fox-open-file,
+    #fox-save-file,
+    #fox-rename-file,
+    #fox-print,
+    #fox-docs,
+    #fox-duowindow
+) {
+    display: inline-block;
+    vertical-align: middle;
+    background: var(--icon-image);
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
 :root{
     --bg-color: #000;
     --border-color: #292929;
@@ -146,42 +161,43 @@ output>span.katex {
     --scrollbar-color: #1c1e20;
     --scrollbar-hover-color: #212326;
     --input-focus-color: #0b1211;
-    --icon-button-icon-size: center / 16px no-repeat;
+    --icon-size: 16px;
+    --icon-button-icon-size: center / var(--icon-size) no-repeat;
 }
 
-.icon-button#toggle-fullscreen {
-    --button-icon: url("./icons/amoled/collapse-all.svg") var(--icon-button-icon-size);
+#fox-toggle-fullscreen {
+    --icon-image: url("./icons/amoled/collapse-all.svg");
 }
 
-.icon-button.active#toggle-fullscreen {
-    --active-button-icon: url("./icons/amoled/expand-all.svg") var(--icon-button-icon-size);
+#fox-toggle-fullscreen.active {
+    --icon-image-active: url("./icons/amoled/expand-all.svg");
 }
 
-.icon-button#open-file{
-    --button-icon: url("./icons/amoled/new-file.svg") var(--icon-button-icon-size);
+#fox-open-file{
+    --icon-image: url("./icons/amoled/new-file.svg");
 }
 
-.icon-button#save-file{
-    --button-icon: url("./icons/amoled/save.svg") var(--icon-button-icon-size);
+#fox-save-file{
+    --icon-image: url("./icons/amoled/save.svg");
 }
 
-.icon-button#rename-file{
-    --button-icon: url("./icons/amoled/rename.svg") var(--icon-button-icon-size);
+#fox-rename-file{
+    --icon-image: url("./icons/amoled/rename.svg");
 }
 
-.icon-button#print{
-    --button-icon: url("./icons/amoled/file-pdf.svg") var(--icon-button-icon-size);
+#fox-print{
+    --icon-image: url("./icons/amoled/file-pdf.svg");
 }
 
-.icon-button#duowindow{
-    --button-icon: url("./icons/amoled/link-external.svg") var(--icon-button-icon-size);
-    --active-button-icon: url("./icons/amoled/close.svg") var(--icon-button-icon-size);
+#fox-duowindow{
+    --icon-image: url("./icons/amoled/link-external.svg");
+    --icon-image-active: url("./icons/amoled/close.svg");
 }
 
-.icon-button#help{
-    --button-icon: url("./icons/amoled/book.svg") var(--icon-button-icon-size);
+#fox-docs{
+    --icon-image: url("./icons/amoled/book.svg");
 }
 
-.icon-button#change-theme{
-    --button-icon: url("./icons/amoled/symbol-color.svg") var(--icon-button-icon-size);
+#fox-change-theme{
+    --icon-image: url("./icons/amoled/symbol-color.svg");
 }
