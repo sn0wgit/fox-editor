@@ -4,7 +4,7 @@ window.onload = () => {
         localStorage.setItem("fox-theme", themeList[0]);
     }
     let themeName = localStorage.getItem("fox-theme");
-    themeLink.setAttribute("href", `./${themeName}-mini.css`);
+    themeLink.setAttribute("href", `/fox-editor/themes/${themeName}-mini.css`);
     document.body.innerHTML = katex.renderToString(localStorage.getItem("fox-value"), {
         output: "html",
         trust: true,

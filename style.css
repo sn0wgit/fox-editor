@@ -92,3 +92,7 @@ body.duowindow main{
         height: calc(100dvh - 60px);
     }
 }
+
+.accent-body::selection, .accent-body ::selection {
+    background-color: #0000;
+}

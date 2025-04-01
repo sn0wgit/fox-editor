@@ -43,25 +43,25 @@ header button{
 }
 
 #fox-open-file {
-    --icon-image: url("./icons/mint/document-open.svg") ;
+    --icon-image: url("../icons/mint/document-open.svg") ;
 }
 
 #fox-save-file {
     --icon-size: 24px;
     --h-icon-size: center / var(--icon-size) no-repeat;
-    --icon-image: url(./icons/mint/document-save.svg);
+    --icon-image: url("../icons/mint/document-save.svg");
 }
 
 #fox-rename-file {
-    --icon-image: url("./icons/mint/rename.svg");
+    --icon-image: url("../icons/mint/rename.svg");
 }
 
 #fox-print {
-    --icon-image: url("./icons/mint/printer-printing-symbolic.svg");
+    --icon-image: url("../icons/mint/printer-printing-symbolic.svg");
 }
 
 #fox-docs {
-    --icon-image: url("./icons/mint/help-about.svg");
+    --icon-image: url("../icons/mint/help-about.svg");
     border-radius: 50%;
 }
 
@@ -72,7 +72,7 @@ header #fox-docs:focus {
 }
 
 #fox-duowindow {
-    --icon-image: url("./icons/mint/sidewindow.svg");
+    --icon-image: url("../icons/mint/sidewindow.svg");
 }
 
 #fox-toggle-fullscreen {
@@ -86,7 +86,7 @@ header #fox-docs:focus {
 }
 
 #fox-change-theme{
-    --icon-image: url("./icons/mint/config-theme.svg");
+    --icon-image: url("../icons/mint/config-theme.svg");
 }
 
 header button:hover {

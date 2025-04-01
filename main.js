@@ -59,7 +59,7 @@ window.onload = () => {
   function setupTheme() {
     themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
     localStorage.setItem("fox-theme", themeName);
-    themeLink.setAttribute("href", `./${themeName}.css`);
+    themeLink.setAttribute("href", `./themes/${themeName}.css`);
     themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)])
   }
 
@@ -137,7 +137,7 @@ window.onload = () => {
     localStorage.setItem("fox-theme", themeList[0]);
   }
   let themeName = localStorage.getItem("fox-theme");
-  themeLink.setAttribute("href", `./${themeName}.css`);
+  themeLink.setAttribute("href", `./themes/${themeName}.css`);
   themeButton.addEventListener("click", () => setupTheme(), false);
 
   //Initialize fullscreen button

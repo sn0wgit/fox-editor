@@ -1,0 +1,62 @@
+html{
+    scrollbar-color: #1c1e20 #0000;
+    --icon-size: 16px;
+}
+
+::selection{
+    background-color: #ffffff1a;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+    scrollbar-color: #1c1e20 #0000;
+}
+
+a {
+    color: #1f6feb;
+}
+
+:focus-visible {
+    background: #4d4256;
+    outline-color: #9f86ff;
+}
+
+#fox-open-file,
+#fox-save-file,
+#fox-rename-file,
+#fox-print,
+#fox-docs,
+#fox-duowindow
+{
+    display: inline-block;
+    vertical-align: middle;
+    background: var(--icon-image);
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+#fox-open-file{
+    --icon-image: url("../icons/amoled/new-file.svg");
+}
+
+#fox-save-file{
+    --icon-image: url("../icons/amoled/save.svg");
+}
+
+#fox-rename-file{
+    --icon-image: url("../icons/amoled/rename.svg");
+}
+
+#fox-print{
+    --icon-image: url("../icons/amoled/file-pdf.svg");
+}
+
+#fox-duowindow{
+    --icon-image: url("../icons/amoled/link-external.svg");
+}
+
+#fox-docs{
+    --icon-image: url("../icons/amoled/book.svg");
+}
