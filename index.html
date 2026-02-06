@@ -40,19 +40,43 @@
     <a class="icon-button" id="fox-docs" href="https://katex.org/docs/supported">KaTeX docs</a>
     <button class="icon-button status-button" id="fox-duowindow">Open output in new window</button>
     <button class="icon-button" id="fox-toggle-fullscreen">Toggle fullscreen</button>
-    <button class="icon-button" id="fox-change-theme">Change theme</button>
+    <button class="icon-button" id="fox-settings-button">Open Settings</button>
   </header>
   <main>
     <textarea id="katex-input" translate="no"></textarea>
+    <style id="fox-userstyles"></style>
     <output id="katex-output" translate="no"></output>
   </main>
-  <dialog id="new-filename">
-    <form>
-      <label>Input new file name:</label>
-      <input/>
-    </form>
+  <dialog id="fox-filename" closedby="any">
+    <legend>Enter file name</legend>
+    <input type="text"/>
+    <button class="active-button" id="close">Close</button>
   </dialog>
-  <dialog id="settings"></dialog>
+  <dialog id="fox-settings" closedby="any">
+    <div>
+      <div class="themes">
+        <legend>Themes</legend>
+        <button id="md3light" class="theme-preview">Material Design 3 Light</button>
+        <button id="md3dark" class="theme-preview">Material Design 3 Dark</button>
+        <button id="mint" class="theme-preview">Mint</button>
+        <button id="amoled" class="theme-preview">Amoled</button>
+      </div>
+      <div class="prefs">
+        <legend>Preferences</legend>
+        <label><input type="checkbox" id="commaDecimalFlag">Comma is also decimal separator</label><br>
+        <label><input type="checkbox" id="displayMode">KaTeX: Display mode</label><br>
+      </div>
+    </div>
+    <div>
+      <div class="options">
+        <legend style="order: 0">JSON Macros</legend>
+        <textarea style="order: 1" id="macros"></textarea>
+        <legend style="order: 2">KaTeX CSS</legend>
+        <textarea style="order: 3" id="userstyles"></textarea>
+      </div>
+    </div>
+    <button class="active-button" id="close">Close</button>
+  </dialog>
   <script defer type="text/javascript" src="./main.js"></script>
 </body>
 </html>

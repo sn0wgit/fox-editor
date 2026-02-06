@@ -1,5 +1,10 @@
 @import url('./md3base.css');
 
+button.theme-preview#md3light{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 :root{
     --bg-color: #fefbff;
     --outline-color: #1c1b1d;
@@ -21,38 +26,38 @@
 }
 
 #fox-toggle-fullscreen {
-    --icon-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%2321182b'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/fullscreen.svg") var(--h-icon-size);
 }
 
 #fox-toggle-fullscreen.active {
-    --icon-image-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%2321182b'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") var(--h-icon-size);
+    --icon-image-active: url("../icons/md3light/collapse.svg") var(--h-icon-size);
 }
 
 #fox-open-file{
-    --icon-image: url("../icons/md3light/file_open_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/file_open.svg") var(--h-icon-size);
 }
 
 #fox-save-file{
-    --icon-image: url("../icons/md3light/save_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/save.svg") var(--h-icon-size);
 }
 
 #fox-rename-file{
-    --icon-image: url("../icons/md3light/edit_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/edit.svg") var(--h-icon-size);
 }
 
 #fox-print{
-    --icon-image: url("../icons/md3light/print_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/print.svg") var(--h-icon-size);
 }
 
 #fox-docs{
-    --icon-image: url("../icons/md3light/developer_guide_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/developer_guide.svg") var(--h-icon-size);
 }
 
 #fox-duowindow{
-    --icon-image: url("../icons/md3light/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
-    --icon-image-active: url("../icons/md3light/open_in_new_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+    --icon-image: url("../icons/md3light/open_in_new.svg") var(--h-icon-size);
+    --icon-image-active: url("../icons/md3light/open_in_new.svg") var(--h-icon-size);
 }
 
-#fox-change-theme{
-    --icon-image: url("../icons/md3light/palette_24dp_E2E0FB_FILL0_wght400_GRAD0_opsz24.svg") var(--h-icon-size);
+#fox-settings-button{
+    --icon-image: url("../icons/md3light/settings.svg") var(--h-icon-size);
 }

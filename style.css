@@ -41,6 +41,14 @@ textarea {
     }
 }
 
+output{
+    &.fox-commaDecimal{
+        & .mpunct + .mspace{
+            display: none;
+        }
+    }
+}
+
 body.fullscreen:not(.duowindow) textarea{
     display: none;
 }
@@ -95,4 +103,20 @@ body.duowindow main{
 
 .accent-body::selection, .accent-body ::selection {
     background-color: #0000;
+}
+
+button.theme-preview#md3light{
+    --image: url("../themes/md3light.svg");
+}
+
+button.theme-preview#md3dark{
+    --image: url("../themes/md3dark.svg");
+}
+
+button.theme-preview#mint{
+    --image: url("../themes/mint.svg");
+}
+
+button.theme-preview#amoled{
+    --image: url("../themes/amoled.svg");
 }

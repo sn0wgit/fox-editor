@@ -1,12 +1,37 @@
+/**
+ * Boolean data type processor. To access value, callback it.
+ * It also accepts handler function as second argument to process value updates.
+ * @param {boolean} val Default value
+ * @param {function(value: boolean)} handler 
+ * @returns 
+ */
+function toggle(val = false, handler = {}){
+  /**
+   * By default callback will revert value.
+   * If you want to safely read value, pass in `true`.
+   * Returns inner value.
+   */
+  return function(read = false){
+    if (!read){
+      val = !val
+      handler(val);
+    }
+    return val
+  }
+}
+  
 window.onload = () => {
   let sideWindow;
+
   const themeList = ["md3light", "md3dark", "amoled", "mint"];
   const themeColors = ["#f2ecee", "#211f21", "#050b09", "#2b2b2b"];
-  const themeButton = document.getElementById("fox-change-theme");
+  const settingsButton = document.getElementById("fox-settings-button");
+  const themeButtons = document.querySelectorAll("dialog#fox-settings div.themes button");
   const themeLink = document.getElementById("theme-link");
   const themeColor = document.getElementById("theme-color");
   const textarea = document.getElementById("katex-input");
   const output = document.getElementById("katex-output");
+  const userstyles = document.getElementById("fox-userstyles")
   const fullscreenButton = document.getElementById("fox-toggle-fullscreen");
   const openFileButton = document.getElementById("fox-open-file");
   const fileInputHTML = document.getElementById("file-input");
@@ -14,13 +39,14 @@ window.onload = () => {
   const renameFileButton = document.getElementById("fox-rename-file");
   const printButton = document.getElementById("fox-print");
   const duoWindowButton = document.getElementById("fox-duowindow");
-  const dialogNewFileName = document.getElementById("fox-new-filename");
+  const dialogNewFileName = document.getElementById("fox-filename");
   const dialogSettings = document.getElementById("fox-settings");
+  const settings_commaDecimalFlag = document.querySelector("input#commaDecimalFlag");
+  const settings_displayMode = document.querySelector("input#displayMode");
+  const settings_macros = document.querySelector("textarea#macros");
+  const settings_userstyles = document.querySelector("textarea#userstyles");
   const commonFileName = "New Document.katex";
-  const welcomeMessage = `\\def\\fOX{f(O_X)}
-
-
-\\htmlStyle{margin: 0 2.25em;}{\\LARGE\\textbf{Welcome to }\\href{https://github.com/sn0wgit/katex-editor}{\\bm\\fOX\\textbf{ editor}}\\textbf!}\\\\
+  const welcomeMessage = `\\htmlStyle{margin: 0 2.25em;}{\\LARGE\\textbf{Welcome to }\\href{https://github.com/sn0wgit/katex-editor}{\\bm\\fOX\\textbf{ editor}}\\textbf!}\\\\
 
 \\htmlStyle{margin: 0 7.8em;}{\\text{Start writing math today!}}\\\\[0.5em]
 
@@ -40,15 +66,105 @@ window.onload = () => {
 
 \\htmlId{fox-duowindow}{}\\text{ opens render in new tab (useful for presentations or similar)}`;
 
+  /**
+   * Function to handle `commaDecimal` param changes 
+   */
+  function commaDecimal_update(res){
+    localStorage.setItem("fox-commaDecimal", res)
+    output.classList.toggle("fox-commaDecimal", res)
+  }
+  let commaDecimal = toggle(
+    (localStorage.getItem("fox-commaDecimal") || "false").toLowerCase() == 'true',
+    commaDecimal_update
+  );
+  commaDecimal_update(commaDecimal(true));
+
+  /**
+   * Function to handle `displayMode` param changes 
+   */
+  function displayMode_update(res){
+    localStorage.setItem("fox-displayMode", res)
+    updateOutput()
+  }
+  let displayMode = toggle(
+    (localStorage.getItem("fox-displayMode") || "false").toLowerCase() == 'true',
+    displayMode_update
+  );
+  if (displayMode(true)) {
+    settings_displayMode.value = 'on'
+  }
+
+  /**
+   * Function to handle `macros` param changes 
+   */
+  function updateMacros(newValue){
+    macros = JSON.parse(newValue) || ""
+    localStorage.setItem("fox-macros", newValue)
+    updateOutput()
+  }
+  let macros = JSON.parse(localStorage.getItem("fox-macros")) || { "\\fOX": "f(O_X)" };
+
+  /**
+   * Function to handle `userCSS` param changes 
+   */
+  function updateUserCSS(newValue){
+    userCSS = newValue
+    localStorage.setItem("fox-userCSS", newValue)
+    userstyles.innerText = "@scope (output){" + userCSS + "}"
+    updateOutput()
+  }
+  let userCSS = localStorage.getItem("fox-userCSS") || ".katex-display{margin-block: 0;}";
+  userstyles.innerText = "@scope (output){" + userCSS + "}"
+
   let fileName = localStorage.getItem("fox-filename") || commonFileName;
   if (fileName != commonFileName){
     document.title = fileName;
   }
 
+  async function initFile(handledFile) {
+    console.log(":p")
+    let file = await handledFile.getFile();
+    const reader = new FileReader();
+    console.log(handledFile.name, file);
+    console.log(file instanceof File, file instanceof Blob);
+    reader.onload = function(content) {
+      localStorage.setItem("fox-filename", handledFile.name || commonFileName);
+      updateFileName();
+      textarea.value = content;
+      localStorage.setItem("fox-value", textarea.value);
+      updateOutput();
+    };
+    reader.readAsText(file);
+  }
+  
+  if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
+    launchQueue.setConsumer((launchParams) => {
+      if (!launchParams.files.length) {
+        return;
+      }
+      for (const fileHandle of launchParams.files) {
+        initFile(fileHandle)
+      }
+    });
+  }
+
   function renameFilePopup(){
-    //dialogNewFileName.showModal();
-    localStorage.setItem("fox-filename", prompt("Input new file name:") || commonFileName);
-    updateFileName();
+    dialogNewFileName.getElementsByTagName("input")[0].value = fileName
+    dialogNewFileName.showModal();
+    function catchEnter(event){
+      console.log(event)
+      if (event.key === "Enter") {
+        dialogNewFileName.close()
+        updateFileName();
+        localStorage.setItem("fox-filename", dialogNewFileName.getElementsByTagName("input")[0].value || commonFileName);
+      }
+    }
+    dialogNewFileName.getElementsByTagName("input")[0].addEventListener("keypress", catchEnter)
+    dialogNewFileName.querySelector("button#close").addEventListener("click", () => dialogNewFileName.close())
+    dialogNewFileName.addEventListener("close", () => {
+      dialogNewFileName.getElementsByTagName("input")[0].removeEventListener("input", catchEnter)
+      dialogNewFileName.querySelector("button#close").removeEventListener("click")
+    })
   }
 
   function updateFileName(){
@@ -56,10 +172,10 @@ window.onload = () => {
     document.title = fileName;
   }
 
-  function setupTheme() {
-    themeName = themeList[(themeList.indexOf(themeName) + 1) % themeList.length];
-    localStorage.setItem("fox-theme", themeName);
-    themeLink.setAttribute("href", `./themes/${themeName}.css`);
+  function setupTheme(_themeName) {
+    themeName = _themeName
+    localStorage.setItem("fox-theme", _themeName);
+    themeLink.setAttribute("href", `./themes/${_themeName}.css`);
     themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)])
   }
 
@@ -75,7 +191,8 @@ window.onload = () => {
       localStorage.setItem("fox-filename", file.name || commonFileName);
       updateFileName();
       textarea.value = contents;
-      updateOutput(contents, output);
+      localStorage.setItem("fox-value", textarea.value);
+      updateOutput();
     };
     reader.readAsText(file);
   }
@@ -91,12 +208,13 @@ window.onload = () => {
     document.body.removeChild(element);
   }
 
-  function updateOutput(input, output){
-    localStorage.setItem("fox-value", input);
+  function updateOutput(){
     if (!sideWindow || sideWindow.closed && !document.body.classList.contains("duowindow")){
-      output.innerHTML = katex.renderToString(input, {
+      output.innerHTML = katex.renderToString(textarea.value, {
         output: "html",
         trust: true,
+        macros,
+        displayMode: displayMode(true)
       });
     }
   }
@@ -113,7 +231,7 @@ window.onload = () => {
     sideWindow.removeEventListener("beforeunload", sideWindowClosed);
     duoWindowButton.classList.remove("active");
     document.body.classList.remove("duowindow");
-    updateOutput(textarea.value, output);
+    updateOutput();
   }
 
   function openSideWindow(){
@@ -127,9 +245,35 @@ window.onload = () => {
       sideWindow = sideWindow.close();
       duoWindowButton.classList.remove("active");
       document.body.classList.remove("duowindow");
-      updateOutput(textarea.value, output);
+      updateOutput();
     }
   }
+
+  //Initialize settings
+  function initializeSettings(){
+    settings_commaDecimalFlag.checked = commaDecimal(true);
+    settings_commaDecimalFlag.addEventListener("input", () => {commaDecimal()});
+    settings_displayMode.checked = displayMode(true);
+    settings_displayMode.addEventListener("input", () => {displayMode()});
+    settings_macros.value = localStorage.getItem("fox-macros");
+    settings_macros.addEventListener("input", () => {
+      updateMacros(settings_macros.value)
+    });
+    settings_userstyles.value = localStorage.getItem("fox-userCSS");
+    settings_userstyles.addEventListener("input", () => {
+      updateUserCSS(settings_userstyles.value)
+    });
+  }
+
+  initializeSettings()
+
+  function openSettings(){
+    dialogSettings.showModal()
+    dialogSettings.querySelector("button#close").addEventListener("click", () => dialogSettings.close())
+  }
+  settingsButton.addEventListener("click", openSettings)
+
+  //Initialize macros
   
   //Initialize themes
   const newUser = localStorage.getItem("fox-theme") == null
@@ -137,8 +281,14 @@ window.onload = () => {
     localStorage.setItem("fox-theme", themeList[0]);
   }
   let themeName = localStorage.getItem("fox-theme");
+  themeButtons.forEach((theme) => {
+    theme.addEventListener(
+      "click",
+      () => setupTheme(theme.getAttribute("id"))
+    )
+  });
   themeLink.setAttribute("href", `./themes/${themeName}.css`);
-  themeButton.addEventListener("click", () => setupTheme(), false);
+  themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)]);
 
   //Initialize fullscreen button
   fullscreenButton.addEventListener("click", () => {
@@ -165,11 +315,17 @@ window.onload = () => {
   //Initialize input area
   if (newUser){
     localStorage.setItem("fox-value", welcomeMessage);
+    localStorage.setItem("fox-macros", JSON.stringify(macros))
+    localStorage.setItem("fox-userCSS", userCSS)
+    localStorage.setItem("fox-displayMode", displayMode(true))
   }
   textarea.value = localStorage.getItem("fox-value") || "";
   textarea.focus();
 
   //Initialize KaTeX
-  updateOutput(textarea.value, output);
-  textarea.addEventListener("input", () => updateOutput(textarea.value, output))
+  updateOutput();
+  textarea.addEventListener("input", () => {
+    localStorage.setItem("fox-value", textarea.value);
+    updateOutput()
+  })
 }

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+dialog#fox-settings div.themes button.theme-preview#mint{
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}
+
 ::selection{
     background-color: #68c174;
     color: #fff;
@@ -14,6 +20,19 @@ html, body{
 
 a {
     color: #68c174;
+}
+
+button.active-button{
+    background: #404040;
+    border: 1px solid #292929;
+    border-radius: 3px;
+    padding: 10px 16px;
+    font: 400 0.75em "Ubuntu";
+    color: #d5d5d5;
+    &:is(:hover, :focus-visible){
+        background: #525252;
+        outline: 0;
+    }
 }
 
 header{
@@ -85,8 +104,8 @@ header #fox-docs:focus {
     --icon-size: 14px;
 }
 
-#fox-change-theme{
-    --icon-image: url("../icons/mint/config-theme.svg");
+#fox-settings-button{
+    --icon-image: url("../icons/mint/settings.svg");
 }
 
 header button:hover {
@@ -172,6 +191,133 @@ output :is(
 output #fox-save-file {
     --icon-size: 16px;
     background-position: center;
+}
+
+dialog{
+    background: #2f2f2f;
+    border: 1px solid #202020;
+    padding: 20px 25px;
+    border-radius: 2px;
+    color: #e2e2e2;
+    opacity: 0;
+    max-width: calc(100vw - 25px * 2 - 1px * 2);
+}
+
+::backdrop{
+    background: radial-gradient(#00000000, #000000e6 80%);
+}
+
+dialog legend{
+    font-weight: bold;
+}
+
+dialog :is(label, legend){
+    color: var(--regular-text-color);
+    user-select: none;
+}
+
+input[type="checkbox"]{
+    accent-color: #35a854;
+    &:focus-visible{
+        outline: 1px dashed #35a854;
+    }
+}
+
+input[type="text"] {
+    background: #414141;
+    border: 1px solid #202020;
+    border-radius: 2px;
+    caret-color: #35a854;
+    color: #e2e2e2;
+    font: 400 1em "Ubuntu";
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+input[type="text"]:focus-visible {
+    outline: unset;
+    border-color: #35a854;
+}
+
+dialog[open]#fox-filename{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 18px;
+    padding: 18px;
+    width: 348px;
+    text-align: center;
+    opacity: 1;
+}
+
+dialog[open]#fox-settings{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 18px;
+    opacity: 1;
+}
+
+dialog#fox-settings legend{
+    margin-block-end: 8px;
+    &:not(:first-child){
+        margin-block-start: 8px;
+    }
+}
+
+dialog#fox-settings button.active-button{
+    width: 100%;
+}
+
+dialog#fox-settings > div{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 9px;
+    &:last-of-type{
+        flex-grow: 1;
+    }
+}
+
+dialog#fox-settings div.options{
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+    & textarea{
+        flex-grow: 1;
+        min-width: 294px;
+        width: 100%;
+        min-height: 120px;
+        height: auto;
+    }
+}
+
+dialog#fox-settings div.themes {
+    display: grid;
+    grid-template-columns: 260px 260px;
+    gap: 6px;
+    @media (max-width: 577px){
+        grid-template-columns: 260px;
+    }
+}
+
+dialog#fox-settings div.themes button.theme-preview {
+    aspect-ratio: 48/32;
+    background: var(--image) center/cover no-repeat;
+    border: 0;
+    color: #0000;
+    user-select: none;
+    outline: 1px solid #202020;
+    &:is(:hover, :focus-visible){
+        outline: 2px solid #35a854;
+    }
+}
+
+@media (min-width: 578px){
+    dialog#fox-settings div.themes legend {
+        grid-column: 1/3;
+    }
 }
 
 @supports (scrollbar-color: auto){
