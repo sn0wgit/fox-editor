@@ -311,6 +311,10 @@ dialog#fox-settings div.themes button.theme-preview {
     --icon-image: url("../icons/amoled/new-file.svg");
 }
 
+#fox-fetch-file{
+    --icon-image: url("../icons/amoled/cloud_download.svg");
+}
+
 #fox-save-file{
     --icon-image: url("../icons/amoled/save.svg");
 }

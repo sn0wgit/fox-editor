@@ -9,7 +9,7 @@ When I studied at school and we used our school laptops to do some exercises onl
 - [x] PDF Export
 - [x] Presentaion mode (Sidewindow)
 - [x] More settings (substitution for theme button with additional preferences)
-- [ ] File import by URL
+- [x] File import by URL
 - [ ] PWA [`file_handlers`](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/file_handlers) support
 - [ ] Monaco editor implementation
 

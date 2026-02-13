@@ -2,11 +2,11 @@ async function processSrcFile(srcFile){
     try {
         const response = await fetch(srcFile, {method: 'GET', headers: {'Accept': 'text/plain'}}).then(response => {
             if (!response.ok) {
-                throw new Error(`Ошибка сети или сервера, статус: ${response.status}`);
+                throw new Error(`Network or server error, status ${response.status}`);
             }
             return response.text(); 
         }).then(textData => {render(textData)}).catch(error => {
-            console.error('oops:', error);
+            console.error('Unexpected error:', error);
         });
     } catch (error) {
         console.error(error.message);

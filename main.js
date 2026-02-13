@@ -34,11 +34,13 @@ window.onload = () => {
   const userstyles = document.getElementById("fox-userstyles")
   const fullscreenButton = document.getElementById("fox-toggle-fullscreen");
   const openFileButton = document.getElementById("fox-open-file");
+  const fetchFileButton = document.getElementById("fox-fetch-file");
   const fileInputHTML = document.getElementById("file-input");
   const saveFileButton = document.getElementById("fox-save-file");
   const renameFileButton = document.getElementById("fox-rename-file");
   const printButton = document.getElementById("fox-print");
   const duoWindowButton = document.getElementById("fox-duowindow");
+  const dialogFileFetch = document.getElementById("fox-fetch");
   const dialogNewFileName = document.getElementById("fox-filename");
   const dialogSettings = document.getElementById("fox-settings");
   const settings_commaDecimalFlag = document.querySelector("input#commaDecimalFlag");
@@ -122,7 +124,6 @@ window.onload = () => {
   }
 
   async function initFile(handledFile) {
-    console.log(":p")
     let file = await handledFile.getFile();
     const reader = new FileReader();
     console.log(handledFile.name, file);
@@ -163,7 +164,7 @@ window.onload = () => {
     dialogNewFileName.querySelector("button#close").addEventListener("click", () => dialogNewFileName.close())
     dialogNewFileName.addEventListener("close", () => {
       dialogNewFileName.getElementsByTagName("input")[0].removeEventListener("input", catchEnter)
-      dialogNewFileName.querySelector("button#close").removeEventListener("click")
+      dialogNewFileName.querySelector("button#close").removeEventListener("click", () => dialogNewFileName.close())
     })
   }
 
@@ -179,6 +180,14 @@ window.onload = () => {
     themeColor.setAttribute("content", themeColors[themeList.indexOf(themeName)])
   }
 
+  function initDocument(content, name) {
+    localStorage.setItem("fox-filename", name || commonFileName);
+    updateFileName();
+    textarea.value = content;
+    localStorage.setItem("fox-value", textarea.value);
+    updateOutput();
+  }
+
   // https://stackoverflow.com/a/26298948
   function readSingleFile(e) {
     let file = e.target.files[0];
@@ -186,15 +195,44 @@ window.onload = () => {
       return;
     }
     let reader = new FileReader();
-    reader.onload = function(e) {
-      let contents = e.target.result;
-      localStorage.setItem("fox-filename", file.name || commonFileName);
-      updateFileName();
-      textarea.value = contents;
-      localStorage.setItem("fox-value", textarea.value);
-      updateOutput();
-    };
+    reader.onload = (e) => initDocument(e.target.result, file.name)
     reader.readAsText(file);
+  }
+
+  function closeFetchDialog(){
+    dialogFileFetch.querySelector("dialog#fox-fetch button").removeEventListener("click", closeFetchDialog)
+    dialogFileFetch.close()
+    fetchFile()
+  }
+
+  function openFetchDialog(){
+    dialogFileFetch.showModal()
+    dialogFileFetch.querySelector("dialog#fox-fetch button").addEventListener("click", closeFetchDialog)
+  }
+
+  async function processSrcFile(URL){
+    const originalDocumentName = document.title
+    document.title = "Loading..."
+    try {
+      await fetch(URL, {method: 'GET', headers: {'Accept': 'text/plain'}}).then(response => {
+        if (!response.ok) {
+          throw new Error(`Network or server error, status ${response.status}`);
+        }
+        return response.text(); 
+      }).then(textData => {initDocument(
+        textData,
+        decodeURI(URL.split("/").pop())
+      )}).catch(error => {
+        console.error('Unexpected error:', error);
+      });
+    } catch (error) {
+      console.error(error.message);
+      document.title = originalDocumentName
+    }
+  }
+
+  function fetchFile(){
+    processSrcFile(document.querySelector("dialog#fox-fetch input[type='text']").value)
   }
 
   function saveFile() {
@@ -299,6 +337,9 @@ window.onload = () => {
   //Initialize file opening button
   openFileButton.addEventListener("click", () => fileInputHTML.click());
   fileInputHTML.addEventListener("change", readSingleFile);
+
+  //Initialize file fetch button
+  fetchFileButton.addEventListener("click", openFetchDialog);
 
   //Initialize download button
   saveFileButton.addEventListener("click", saveFile);

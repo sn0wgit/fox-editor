@@ -37,6 +37,10 @@ button.theme-preview#md3dark{
     --icon-image: url("../icons/md3dark/file_open.svg") var(--h-icon-size);
 }
 
+#fox-fetch-file{
+    --icon-image: url("../icons/md3dark/cloud_download.svg") var(--h-icon-size);
+}
+
 #fox-save-file{
     --icon-image: url("../icons/md3dark/save.svg") var(--h-icon-size);
 }

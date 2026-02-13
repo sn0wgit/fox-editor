@@ -33,6 +33,7 @@
 <body>
   <header>
     <button class="icon-button" id="fox-open-file">Open file</button>
+    <button class="icon-button" id="fox-fetch-file">Fetch file</button>
     <input type="file" id="file-input" accept=".txt, .katex" />
     <button class="icon-button" id="fox-save-file">Save file</button>
     <button class="icon-button" id="fox-rename-file">Rename</button>
@@ -50,7 +51,12 @@
   <dialog id="fox-filename" closedby="any">
     <legend>Enter file name</legend>
     <input type="text"/>
-    <button class="active-button" id="close">Close</button>
+    <button class="active-button" id="close">Cancel</button>
+  </dialog>
+  <dialog id="fox-fetch" closedby="any">
+    <legend>Enter URL</legend>
+    <input type="text"/>
+    <button class="active-button" id="close">Import</button>
   </dialog>
   <dialog id="fox-settings" closedby="any">
     <div>

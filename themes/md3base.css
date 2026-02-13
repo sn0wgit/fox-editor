@@ -227,7 +227,8 @@ dialog input[type="text"]:focus{
     outline: 1px solid var(--input-bottom-border-color);
 }
 
-dialog[open]#fox-filename{
+dialog[open]#fox-filename,
+dialog[open]#fox-fetch{
     display: flex;
     flex-flow: column wrap;
     gap: 16px;
